@@ -58,5 +58,6 @@ steps:
     inputs:
       azureSubscription: $(Azure.ServiceConnection)
       scriptLocation: inlineScript
-      inlineScript: 'az acr helm push -n $(ACR.Name) $(Build.ArtifactStagingDirectory)/*.tgz'
+      inlineScript: |
+        az acr helm push -n $(ACR.Name) $(Build.ArtifactStagingDirectory)/*.tgz
     
