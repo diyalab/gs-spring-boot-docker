@@ -34,6 +34,6 @@ steps:
     inputs:
       command: package
       version: $(Build.BuildNumber)
-      appVersion: $(Build.BuildNumber)
+      app-version: $(Build.BuildNumber)
       chartPath: helmchart/sping-demo
       destination: $(Build.ArtifactStagingDirectory)
