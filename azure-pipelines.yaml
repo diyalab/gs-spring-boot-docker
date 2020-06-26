@@ -17,7 +17,7 @@ steps:
       goals: "package"
   - script: |
       echo Build docker image
-      docker build -t $DOCKER_USERNAME.azurecr.io/$(imageName):$(Build.BuildNumber) .
+      docker build -f complete/Dockerfile -t $DOCKER_USERNAME.azurecr.io/$(imageName):$(Build.BuildNumber) complete
       echo Login to docker repository
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_USERNAME.azurecr.io
       echo Push docker image
