@@ -3,12 +3,15 @@ pool:
 
 variables:
   imageName: spring-demo
+  major: 1
+  minor: 1
+name: $(major).$(minor)$(Rev:.r)
 
 steps:
   - task: Maven@3
     inputs:
       mavenPomFile: "complete/pom.xml"
-      options: "-Dspring.profiles.active=dev"
+      options: "versions:set -DnewVersion=$(Build.BuildNumber)"
       javaHomeOption: "JDKVersion"
       jdkVersionOption: "1.8"
       jdkArchitectureOption: "x64"
@@ -29,6 +32,6 @@ steps:
   - task: HelmDeploy@0
     displayName: Helm package
     inputs:
-      command: package
+      command: package --app-version $(Build.BuildNumber) --version $(Build.BuildNumber)
       chartPath: helmchart/sping-demo
       destination: $(Build.ArtifactStagingDirectory)
