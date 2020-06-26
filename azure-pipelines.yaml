@@ -26,3 +26,9 @@ steps:
     env:
       DOCKER_USERNAME: $(DOCKER_USERNAME)
       DOCKER_PASSWORD: $(DOCKER_PASSWORD)
+  - task: HelmDeploy@0
+    displayName: Helm package
+    inputs:
+      command: package
+      chartPath: helmchart/spring-demo
+      destination: $(Build.ArtifactStagingDirectory)
