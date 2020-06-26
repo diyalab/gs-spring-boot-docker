@@ -5,6 +5,8 @@ variables:
   imageName: spring-demo
   major: 1
   minor: 1
+  ACR.Name: 'siva273'
+  Azure.ServiceConnection: 'Pay-As-You-Go (e965f3cd-60ee-4d29-b7f9-640e61f817d2)'
 name: $(major).$(minor)$(Rev:.r)
 
 steps:
@@ -34,6 +36,20 @@ steps:
     inputs:
       command: package
       version: $(Build.BuildNumber)
-      app-version: $(Build.BuildNumber)
       chartPath: helmchart/sping-demo
       destination: $(Build.ArtifactStagingDirectory)
+  - task: AzureCLI@2
+    displayName: Login to Azure Container Registry
+    inputs:
+      azureSubscription: "$(Azure.ServiceConnection)"
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        az acr login --name $(ACR.Name)
+  - task: HelmInstaller@1
+    inputs:
+      helmVersionToInstall: 'latest'
+  - bash: |
+      helm chart save ./helmchart/sping-demo $(ACR.Name).azurecr.io/charts/sprind-demo:$(Build.BuildNumber)
+      helm chart push $(ACR.Name).azurecr.io/charts/sprind-demo:$(Build.BuildNumber)
+    
