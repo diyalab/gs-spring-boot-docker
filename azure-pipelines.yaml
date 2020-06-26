@@ -2,6 +2,7 @@ pool:
   vmImage: "ubuntu-latest"
 
 variables:
+  HELM_EXPERIMENTAL_OCI: 1
   imageName: spring-demo
   major: 1
   minor: 1
