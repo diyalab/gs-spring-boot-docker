@@ -71,17 +71,17 @@ steps:
     inputs:
       pathToPublish: $(Build.ArtifactStagingDirectory)
       artifactName: helmchart
-  - task: HelmDeploy@0
-    displayName: Helm upgrade
-    inputs:
-      azureSubscriptionEndpoint: "$(Azure.ServiceConnection)"
-      azureResourceGroup: $(azureResourceGroup)
-      kubernetesCluster: $(kubernetesCluster)
-      command: upgrade
-      chartType: filepath
-      chartPath: $(Build.ArtifactStagingDirectory)/sping-demo-$(Build.BuildNumber).tgz
-      releaseName: spring-demo
-      install: true
-      waitForExecution: false
+  # - task: HelmDeploy@0
+  #   displayName: Helm upgrade
+  #   inputs:
+  #     azureSubscriptionEndpoint: "$(Azure.ServiceConnection)"
+  #     azureResourceGroup: $(azureResourceGroup)
+  #     kubernetesCluster: $(kubernetesCluster)
+  #     command: upgrade
+  #     chartType: filepath
+  #     chartPath: $(Build.ArtifactStagingDirectory)/sping-demo-$(Build.BuildNumber).tgz
+  #     releaseName: spring-demo
+  #     install: true
+  #     waitForExecution: false
       
     
