@@ -17,7 +17,7 @@ steps:
   - task: Maven@3
     inputs:
       mavenPomFile: "complete/pom.xml"
-      options: "versions:set -DnewVersion=$(Build.BuildNumber)"
+      # options: "versions:set -DnewVersion=$(Build.BuildNumber)"
       javaHomeOption: "JDKVersion"
       jdkVersionOption: "1.8"
       jdkArchitectureOption: "x64"
