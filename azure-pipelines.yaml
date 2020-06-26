@@ -15,14 +15,14 @@ steps:
       publishJUnitResults: false
       testResultsFiles: "**/surefire-reports/TEST-*.xml"
       goals: "package"
-  # - script: |
-  #     echo Build docker image
-  #     docker build -t $username.azurecr.io/$(imageName):$(Build.BuildNumber) .
-  #     echo Login to docker repository
-  #     docker login -u $username -p $password $username.azurecr.io
-  #     echo Push docker image
-  #     docker push $username.azurecr.io/$(imageName):$(Build.BuildNumber)
-  #   displayName: "Build and Push Docker Image"
-  #   env:
-  #     username: $(acrUsername)
-  #     password: $(acrPassword)
+  - script: |
+      echo Build docker image
+      docker build -t $DOCKER_USERNAME.azurecr.io/$(imageName):$(Build.BuildNumber) .
+      echo Login to docker repository
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_USERNAME.azurecr.io
+      echo Push docker image
+      docker push $DOCKER_USERNAME.azurecr.io/$(imageName):$(Build.BuildNumber)
+    displayName: "Build and Push Docker Image"
+    env:
+      DOCKER_USERNAME: $(DOCKER_USERNAME)
+      DOCKER_PASSWORD: $(DOCKER_PASSWORD)
