@@ -30,5 +30,5 @@ steps:
     displayName: Helm package
     inputs:
       command: package
-      chartPath: helmchart/spring-demo
+      chartPath: helmchart/sping-demo
       destination: $(Build.ArtifactStagingDirectory)
