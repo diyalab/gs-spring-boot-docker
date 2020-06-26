@@ -32,13 +32,13 @@ steps:
     env:
       DOCKER_USERNAME: $(DOCKER_USERNAME)
       DOCKER_PASSWORD: $(DOCKER_PASSWORD)
-  - task: HelmDeploy@0
-    displayName: Helm package
-    inputs:
-      command: package
-      version: $(Build.BuildNumber)
-      chartPath: helmchart/sping-demo
-      destination: $(Build.ArtifactStagingDirectory)
+  # - task: HelmDeploy@0
+  #   displayName: Helm package
+  #   inputs:
+  #     command: package
+  #     version: $(Build.BuildNumber)
+  #     chartPath: helmchart/sping-demo
+  #     destination: $(Build.ArtifactStagingDirectory)
   - task: AzureCLI@2
     displayName: Login to Azure Container Registry
     inputs:
