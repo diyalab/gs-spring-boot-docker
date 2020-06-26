@@ -60,6 +60,8 @@ steps:
       scriptLocation: inlineScript
       scriptType: bash
       inlineScript: |
+        az acr login --name $(ACR.Name)
         helm package ./helmchart/sping-demo --app-version $(Build.BuildNumber) --version $(Build.BuildNumber)
+        mv *.tgz $(Build.ArtifactStagingDirectory)/
         az acr helm push -n $(ACR.Name) $(Build.ArtifactStagingDirectory)/*.tgz
     
