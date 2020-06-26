@@ -1,0 +1,32 @@
+{
+  "pool": {
+    "vmImage": "ubuntu-latest"
+  },
+  "variables": {
+    "HELM_EXPERIMENTAL_OCI": 1,
+    "imageName": "spring-demo",
+    "major": 1,
+    "minor": 1,
+    "ACR.Name": "siva273",
+    "Azure.ServiceConnection": "Pay-As-You-Go (e965f3cd-60ee-4d29-b7f9-640e61f817d2)",
+    "azureResourceGroup": "aks-resource-group",
+    "kubernetesCluster": "siva-aks"
+  },
+  "steps": [
+    {
+      "task": "HelmDeploy@0",
+      "displayName": "Helm upgrade",
+      "inputs": {
+        "azureSubscriptionEndpoint": "$(Azure.ServiceConnection)",
+        "azureResourceGroup": "$(azureResourceGroup)",
+        "kubernetesCluster": "$(kubernetesCluster)",
+        "command": "upgrade",
+        "chartType": "filepath",
+        "chartPath": "$(Build.ArtifactStagingDirectory)/sping-demo-$(Build.BuildNumber).tgz",
+        "releaseName": "spring-demo",
+        "install": true,
+        "waitForExecution": false
+      }
+    }
+  ]
+}

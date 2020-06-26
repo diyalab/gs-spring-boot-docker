@@ -8,8 +8,8 @@ variables:
   minor: 1
   ACR.Name: 'siva273'
   Azure.ServiceConnection: 'Pay-As-You-Go (e965f3cd-60ee-4d29-b7f9-640e61f817d2)'
-  azureResourceGroup: 'azure-k8stest'
-  kubernetesCluster: 'k8stest'
+  azureResourceGroup: 'aks-resource-group'
+  kubernetesCluster: 'siva-aks'
 
 name: $(major).$(minor)$(Rev:.r)
 
