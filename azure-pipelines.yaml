@@ -32,6 +32,7 @@ steps:
   - task: HelmDeploy@0
     displayName: Helm package
     inputs:
-      command: package --app-version $(Build.BuildNumber) --version $(Build.BuildNumber)
+      command: package
+      version: $(Build.BuildNumber)
       chartPath: helmchart/sping-demo
       destination: $(Build.ArtifactStagingDirectory)
