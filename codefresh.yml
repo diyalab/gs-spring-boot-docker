@@ -32,7 +32,7 @@ steps:
     title: Deploying Helm Chart
     type: helm
     stage: deploy
-    working_directory: ./spring-boot-2-sample-app
+    # working_directory: ./spring-boot-2-sample-app
     arguments:
       action: install
       chart_name: helmchart/sping-demo
