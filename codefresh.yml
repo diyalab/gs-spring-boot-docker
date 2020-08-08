@@ -52,9 +52,6 @@ steps:
       helm_version: 3.0.2
       kube_context: locus@siva
       skip_cf_stable_helm_repo: true
-      # custom_values:
-      #   - 'buildID=${{CF_BUILD_ID}}'
-      #   - 'image_pullPolicy=Always'
-      #   - 'image='
-      #   - 'replicaCount=3'
+      custom_values:
+        - 'image.tag=${{CF_SHORT_REVISION}}'
         
