@@ -32,10 +32,10 @@ steps:
     title: Deploying Helm Chart
     type: helm
     stage: deploy
-    working_directory: ./helmchart
+    working_directory: ./spring-boot-2-sample-app
     arguments:
       action: install
-      chart_name: sping-demo
+      chart_name: helmchart/sping-demo
       release_name: spring-demo
       helm_version: 3.0.2
       kube_context: locus@siva
