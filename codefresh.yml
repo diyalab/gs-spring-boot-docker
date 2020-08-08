@@ -32,10 +32,10 @@ steps:
     title: Deploying Helm Chart
     type: helm
     stage: deploy
-    working_directory: ./
+    working_directory: ./helmchart
     arguments:
       action: install
-      chart_name: helmchart
+      chart_name: spring-demo
       release_name: spring-demo
       helm_version: 3.0.2
       kube_context: locus@siva
