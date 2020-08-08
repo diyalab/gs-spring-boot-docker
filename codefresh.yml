@@ -8,7 +8,7 @@ steps:
     title: Cloning main repository...
     stage: prepare
     type: git-clone
-    repo: 'diyalabs/gs-spring-boot-docker'
+    repo: 'gs-spring-boot-docker'
     revision: master
     git: github
   run_unit_tests:
