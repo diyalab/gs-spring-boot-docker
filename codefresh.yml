@@ -37,7 +37,7 @@ steps:
     arguments:
       action: push
       chart_name: helmchart/sping-demo
-      chart_repo_url: 'cm://h.cfcr.io/anna-codefresh/default'
+      chart_repo_url: 'cm://h.cfcr.io/siva273/default'
       kube_context: locus@siva
   deploy:
     title: Deploying Helm Chart
