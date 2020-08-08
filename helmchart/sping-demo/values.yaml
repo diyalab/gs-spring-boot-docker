@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: siva273.azurecr.io/spring-demo
+  repository: gcr.io/sivaganesh-273273/spring-boot-2-sample-app
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

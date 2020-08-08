@@ -3,6 +3,7 @@ stages:
   - prepare
   - test
   - build and push docker image
+  - deploy
 steps:
   main_clone:
     title: Cloning main repository...
@@ -24,6 +25,23 @@ steps:
     stage: build and push docker image
     image_name: spring-boot-2-sample-app
     working_directory: ./complete
-    tag: '1.0.0'
+    tag: ${{CF_SHORT_REVISION}}
     dockerfile: Dockerfile
     registry: gcr
+  deploy:
+    title: Deploying Helm Chart
+    type: helm
+    stage: deploy
+    working_directory: ./helmchart
+    arguments:
+      action: install
+      chart_name: charts/helm-example
+      release_name: spring-demo
+      helm_version: 3.0.2
+      kube_context: locus
+      custom_values:
+        - 'buildID=${{CF_BUILD_ID}}'
+        - 'image_pullPolicy=Always'
+        - 'image='
+        - 'replicaCount=3'
+        
