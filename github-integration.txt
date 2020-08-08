@@ -1,0 +1,1 @@
+integrate github from account settings page and select git to configure

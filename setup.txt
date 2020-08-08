@@ -1,0 +1,10 @@
+1. Create a codefresh account
+2. Go to account settings and configure git and cinnect your github acoount
+3. In account settings configure container regisrty, in this demo I used gcr.
+4. in account settings configure your kubernetes cluster, in this demo i used gke.
+5. Create a new project and create a pipeline, give pipeline name and pick github repo, configure workflow 
+   to use pipeline yaml from repo 
+6. Update codefresh.yml file 
+    a. chart_repo_url (get from helm repositories in account settings )
+    b. kube_context (get from kubernetes clusters in account settings)
+    c. repo
