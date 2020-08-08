@@ -3,7 +3,7 @@ stages:
   - prepare
   - test
   - build and push docker image
-  - store
+  # - store
   - deploy
 steps:
   main_clone:
@@ -29,15 +29,15 @@ steps:
     tag: ${{CF_SHORT_REVISION}}
     dockerfile: Dockerfile
     registry: gcr
-  StoreChart:
-    title: Storing Helm Chart
-    type: helm
-    stage: store
-    working_directory: ./spring-boot-2-sample-app
-    arguments:
-      action: push
-      chart_name: helmchart/sping-demo
-      kube_context: locus@siva
+  # StoreChart:
+  #   title: Storing Helm Chart
+  #   type: helm
+  #   stage: store
+  #   working_directory: ./spring-boot-2-sample-app
+  #   arguments:
+  #     action: push
+  #     chart_name: helmchart/sping-demo
+  #     kube_context: locus@siva
   deploy:
     title: Deploying Helm Chart
     type: helm
@@ -49,6 +49,7 @@ steps:
       release_name: spring-demo
       helm_version: 3.0.2
       kube_context: locus@siva
+      skip_cf_stable_helm_repo: true
       # custom_values:
       #   - 'buildID=${{CF_BUILD_ID}}'
       #   - 'image_pullPolicy=Always'
