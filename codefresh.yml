@@ -3,7 +3,7 @@ stages:
   - prepare
   - test
   - build and push docker image
-  # - store
+  - store
   - deploy
 steps:
   main_clone:
