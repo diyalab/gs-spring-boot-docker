@@ -33,10 +33,11 @@ steps:
     title: Storing Helm Chart
     type: helm
     stage: store
-    working_directory: ./spring-boot-2-sample-app
+    working_directory: ./helmchart
     arguments:
       action: push
-      chart_name: helmchart/sping-demo
+      helm_version: 3.0.2
+      chart_name: sping-demo
       chart_repo_url: 'cm://h.cfcr.io/siva273/default'
       kube_context: locus@siva
   deploy:
