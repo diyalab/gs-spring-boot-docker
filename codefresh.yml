@@ -39,9 +39,9 @@ steps:
       release_name: spring-demo
       helm_version: 3.0.2
       kube_context: locus@siva
-      custom_values:
-        - 'buildID=${{CF_BUILD_ID}}'
-        - 'image_pullPolicy=Always'
-        - 'image='
-        - 'replicaCount=3'
+      # custom_values:
+      #   - 'buildID=${{CF_BUILD_ID}}'
+      #   - 'image_pullPolicy=Always'
+      #   - 'image='
+      #   - 'replicaCount=3'
         
