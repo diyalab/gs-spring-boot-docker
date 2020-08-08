@@ -35,7 +35,7 @@ steps:
     working_directory: ./helmchart
     arguments:
       action: install
-      chart_name: spring-demo
+      chart_name: sping-demo
       release_name: spring-demo
       helm_version: 3.0.2
       kube_context: locus@siva
