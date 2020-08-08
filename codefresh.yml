@@ -25,4 +25,5 @@ steps:
     image_name: spring-boot-2-sample-app
     working_directory: ./complete
     tag: '1.0.0'
-    dockerfile: Dockerfile 
+    dockerfile: Dockerfile
+    registry: gcr
