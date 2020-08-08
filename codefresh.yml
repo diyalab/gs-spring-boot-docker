@@ -2,7 +2,7 @@ version: '1.0'
 stages:
   - prepare
   - test
-  - build
+  - build and push docker image
 steps:
   main_clone:
     title: Cloning main repository...
@@ -21,7 +21,7 @@ steps:
   build_app_image:
     title: Building Docker Image
     type: build
-    stage: build
+    stage: build and push docker image
     image_name: spring-boot-2-sample-app
     working_directory: ./complete
     tag: '1.0.0'
