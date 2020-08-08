@@ -17,4 +17,4 @@ steps:
     image: 'maven:3.5.2-jdk-8-alpine'
     working_directory: ./complete
     commands:
-      - mvn test 
+      - mvn package 
