@@ -8,3 +8,4 @@
     a. chart_repo_url (get from helm repositories in account settings )
     b. kube_context (get from kubernetes clusters in account settings)
     c. repo
+7. App can be accessed with IP od service in kubernetes
