@@ -1,0 +1,20 @@
+version: '1.0'
+stages:
+  - prepare
+  - test
+  # - build
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: prepare
+    type: git-clone
+    repo: 'gs-spring-boot-docker'
+    revision: master
+    git: github
+  run_unit_tests:
+    title: Compile/Unit test
+    stage: test
+    image: 'maven:3.5.2-jdk-8-alpine'
+    working_directory: ./complete
+    commands:
+      - mvn clean install 
